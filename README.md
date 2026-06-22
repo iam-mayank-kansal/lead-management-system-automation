@@ -124,7 +124,7 @@ npx playwright test tests/leadImport.spec.ts --ui
 
 ```json
 {
-  "businessName": "ABC Technologies",
+  "businessName": "XYZ",
   "phone": "+91XXXXXXXXXX",
   "website": "https://xyz.com",
   "emails": ["info@xyz.com"],

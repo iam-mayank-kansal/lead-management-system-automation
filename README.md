@@ -76,8 +76,8 @@ Create a `.env` file:
 ```env
 BASE_URL=http://localhost:3000
 
-ADMIN_EMAIL=bkdadmin@gmail.com
-ADMIN_PASSWORD=bkdadmin@123
+ADMIN_EMAIL=xyz@gmail.com
+ADMIN_PASSWORD=xyz@123
 
 MAX_RESULTS=2
 ```
@@ -126,10 +126,10 @@ npx playwright test tests/leadImport.spec.ts --ui
 {
   "businessName": "ABC Technologies",
   "phone": "+91XXXXXXXXXX",
-  "website": "https://abctech.com",
-  "emails": ["info@abctech.com"],
-  "facebook": "https://facebook.com/abctech",
-  "instagram": "https://instagram.com/abctech",
-  "linkedin": "https://linkedin.com/company/abctech"
+  "website": "https://xyz.com",
+  "emails": ["info@xyz.com"],
+  "facebook": "https://facebook.com/xyz",
+  "instagram": "https://instagram.com/xyz",
+  "linkedin": "https://linkedin.com/company/xyz"
 }
 ```

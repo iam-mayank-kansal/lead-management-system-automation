@@ -1,0 +1,16 @@
+{
+  "name": "lead-msg-automation",
+  "version": "1.0.0",
+  "description": "Scraper and Lead Import Pipeline",
+  "scripts": {
+    "test:scrape": "npx playwright test tests/scraperJob.spec.ts",
+    "test:import": "npx playwright test tests/leadImport.spec.ts",
+    "pipeline:run": "npm run test:scrape && npm run test:import"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.11.24",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.3.3"
+  }
+}

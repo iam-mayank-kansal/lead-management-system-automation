@@ -38,12 +38,13 @@ test('Import Leads From JSON', async ({ page }) => {
       await leadPage.createLead(lead);
       console.log(`✅ Created Lead: ${lead.fullName}`);
       successCount++;
-    } catch (error: any) {
-      console.error(`❌ Failed Lead: ${lead.fullName}`, error.message || error);
+    } catch (error) {
+      const errMessage = error instanceof Error ? error.message : String(error);
+      console.error(`❌ Failed Lead: ${lead.fullName}`, errMessage);
       failCount++;
       
       // Safety break to prevent cascade failures on dead browser contexts
-      if (error?.message?.includes('Target page, context or browser has been closed') || error?.message?.includes('Test ended')) {
+      if (errMessage.includes('Target page, context or browser has been closed') || errMessage.includes('Test ended')) {
         console.error('🛑 Critical failure: Browser context lost. Aborting pipeline.');
         break; 
       }

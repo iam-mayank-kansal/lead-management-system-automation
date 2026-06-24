@@ -6,10 +6,9 @@ test("Scrape Google Maps to JSON", async ({ page }) => {
   test.setTimeout(30 * 60 * 1000);
 
   const queries = [
-    "Library in Burari",
-    "Co-working space in Burari",
-    "Study room in Burari",
-    
+    "Library in Pitampura",
+    "Co-working space in Pitampura",
+    "Study room in Pitampura",
   ];
 
   const maxResults = process.env.MAX_RESULTS

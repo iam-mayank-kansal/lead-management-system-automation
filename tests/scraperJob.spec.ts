@@ -5,11 +5,16 @@ import { writeLeads } from "../src/services/fileSystem";
 test("Scrape Google Maps to JSON", async ({ page }) => {
   test.setTimeout(30 * 60 * 1000);
 
-  const queries = [
-    "Library in Pitampura",
-    "Co-working space in Pitampura",
-    "Study room in Pitampura",
-  ];
+const queries = [
+  "manufacturers near me",
+  "manufacturer Delhi",
+  "manufacturer Noida",
+  "manufacturer Gurgaon",
+  "manufacturer Faridabad",
+  "manufacturer Ghaziabad",
+  "manufacturer B2B in Delhi",
+  "manufacturer wholesale in Delhi"
+];
 
   const maxResults = process.env.MAX_RESULTS
     ? parseInt(process.env.MAX_RESULTS)

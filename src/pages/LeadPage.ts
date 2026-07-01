@@ -29,7 +29,6 @@ export class LeadPage {
       await this.page.locator("#address").fill(lead.address);
     }
 
-    // FIX: Replaced non-existent #company with #category
     if (lead.category) {
       await this.page.locator("#category").fill(lead.category);
     }
@@ -72,17 +71,23 @@ export class LeadPage {
     await this.page.keyboard.press("Escape");
   }
 
-  async fillLeadInformation() {
+  async fillLeadInformation(lead : Lead) {
     // Only filling the required ones marked with * in your UI
     await this.selectDropdownOption("source", "Google Maps");
 
     const statusLocator = this.page.locator("#status");
     await statusLocator.scrollIntoViewIfNeeded();
-    await this.selectDropdownOption("status", "New");
+    if ((lead.phone && lead.phone.trim() !== "") || (lead.emails && lead.emails.length > 0)) {
+      await this.selectDropdownOption("status", "New");
+    }
+    else
+    {
+      await this.selectDropdownOption("status", "Unqualified");
+    }
   }
 
   async fillFollowUpInformation() {
-    await this.selectDropdownOption("priority", "Medium");
+    await this.selectDropdownOption("priority", "Low");
     await this.selectDropdownOption("contactMethod", "WhatsApp");
   }
 
@@ -113,7 +118,7 @@ export class LeadPage {
     await this.navigateToAddLead();
     await this.fillPersonalInformation(lead);
     await this.fillDirectoryAndSocials(lead);
-    await this.fillLeadInformation();
+    await this.fillLeadInformation(lead);
     await this.fillFollowUpInformation();
     await this.fillAdditionalInformation(lead);
     await this.submitLead();
